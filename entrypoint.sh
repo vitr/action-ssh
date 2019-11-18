@@ -30,8 +30,9 @@ fi
 echo ""
 
 for host in ${INPUT_HOSTS}; do
-  echo -e "${BLUE}1Connecting to ${host}...${NORMAL}"
-  sh -c "ssh -q -t -i ~/.ssh/id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no '${host}' '${INPUT_COMMAND}'"
+  echo -e "${BLUE}Connecting to ${host}...${NORMAL}"
+#  sh -c "ssh -q -t -i ~/.ssh/id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no '${host}' '${INPUT_COMMAND}'"
+  ssh -q -t -i ~/.ssh/id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no '${host}' '${INPUT_COMMAND}'
   echo ""
 done
 
